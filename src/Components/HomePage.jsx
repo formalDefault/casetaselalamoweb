@@ -15,22 +15,24 @@ const llamadas = (numero) => {
 const portada = () => {
     return (
       <div className="">
-        <div className="bg-black bg-opacity-50 relative text-white text-2xl h-screen pt-48 xl:py-56 xl:h-auto ">
+        <div className="bg-black bg-opacity-50 relative text-white text-2xl h-screen pt-32 sm:pt-12 md:pt-48 xl:pt-32 xl:py-56 xl:h-auto ">
           <div className="text-center">
-            <img src={img.Logotipo1} alt="" className="w-80 m-auto mb-8"/>
-            <h1>
-              <b>Diseño y Fabricación de Carrocerias</b>
-            </h1>
-            <h1>, Desde Motocarros Hasta Camión de Mudanzas</h1>
+            <img src={img.Logotipo1} alt="" className="w-60 m-auto mb-8 sm:w-48 sm:mb-2 md:w-80 md:mb-8"/>
+            <div className="md:text-3xl">
+              <h1>
+                <b>Diseño y Fabricación de Carrocerias</b>
+              </h1>
+              <h1>, Desde Motocarros Hasta Camión de Mudanzas</h1>
+            </div>
             <Link
               to="formulario"
               spy={true}
               smooth={true}
               offset={0}
               duration={750}
-              className="xl:hidden"
+              className=""
             >
-              <button className="px-4 bg-blue-900 text-lg py-2 rounded-lg mt-12">
+              <button className="px-4 bg-blue-900 text-lg py-2 rounded-lg mt-12 sm:mt-4 md:mt-12 md:text-4xl xl:text-2xl">
                 <i className="fas fa-comment-alt float-left mt-2 mr-4"></i>
                 Contactanos
               </button>
@@ -45,7 +47,7 @@ const portada = () => {
               duration={750}
             >
               <div className=" mb-4 w-2/12 m-auto rounded-full">
-                <i className="fas fa-arrow-down animate-bounce"></i>
+                <i className="fas fa-arrow-down animate-bounce md:text-4xl"></i>
               </div>
             </Link>
           </div>
@@ -58,8 +60,8 @@ const segundaSeccion = () => {
   const tarjetasServicios = (imagen, servicio, description) => {
     return (
       <div>
-        <div id="carroceria" className={serviceStyle}>
-          <img src={imagen} alt="imagen_servicio" className="rounded-t-lg bg-blue-500 object-cover h-48 xl:h-60 w-full" />
+        <div className={serviceStyle}>
+          <img src={imagen} alt="imagen_servicio" className="rounded-t-lg bg-blue-600 object-cover h-48 w-full sm:h-60 xl:h-60" />
           <div className="p-2">
             <h1>
               <b>{servicio}</b>
@@ -72,19 +74,20 @@ const segundaSeccion = () => {
       </div>
     );
   } 
-  var serviceStyle = "text-white border border-blue-600 shadow-lg rounded-xl xl:shadow-lg xl:hover:shadow-2xl xl:duration-300 cursor-pointer";
+  var serviceStyle = "text-white border bg-blue-600 shadow-xl rounded-xl xl:shadow-lg xl:hover:shadow-2xl xl:duration-300 cursor-pointer";
     return (
       <div className="relative">
-        <div className=" bg-blue-600 p-4">
-          <div className=" p-2 rounded-xl shadow-lg text-white border border-blue-700 xl:w-10/12 xl:m-auto xl:grid xl:grid-cols-2 xl:p-0">
+        <div className=" bg-white text-black p-4">
+          <div className=" p-2 rounded-xl shadow-xl text-black border bg-white xl:w-9/12 xl:px-4 xl:m-auto xl:grid xl:grid-cols-2 xl:p-0">
             <div className="xl:px-6 pt-8">
-              <img
+              {/* <img
                 src={img.nosotros}
                 alt="nosotros"
-                className="mb-4 xl:mb-0 xl:w-8/12"
-              />
+                className="mb-4 xl:mb-0 xl:py-4 xl:w-10/12"
+              /> */}
+              <img src={img.certificate} className="fas fa-wrench mb-4 w-7/12 pl-24 xl:pl-20 xl:py-20 xl:w-6/12" />
             </div>
-            <div className="xl:py-16">
+            <div className="xl:py-16 md:text-xl">
               <b>Nosotros</b>
               <h1>
                 Nos especializamos en todo tipo de carrocerías seca,
@@ -97,11 +100,11 @@ const segundaSeccion = () => {
             </div>
           </div>
           <div id="servicios" className="mt-12">
-            <h1 className="text-white text-center text-2xl mb-4">
+            <h1 className="text-black text-center text-2xl mb-4 md:text-3xl md:pb-8">
               <b>Servicios</b>
               <hr className="w-5/12 m-auto " />
             </h1>
-            <div className="grid grid-cols-1 xl:grid-cols-3 gap-8 xl:w-11/12 xl:m-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8 xl:w-11/12 xl:m-auto md:text-xl">
               <NavLink exact to="/carrocerias/">
                 {tarjetasServicios(
                   img.servicioCarroceria,
@@ -110,7 +113,7 @@ const segundaSeccion = () => {
                 )}
               </NavLink>
               <NavLink exact to="/carrocerias/fibra">
-{tarjetasServicios(
+              {tarjetasServicios(
                 img.servicioFibra,
                 "Casetas de fibra de vidrio",
                 "Servicio de casetas en fibra de vidrio, las más resistentes fabricada con los mejores materiales brindando un buen funcionamiento."
@@ -132,8 +135,8 @@ const segundaSeccion = () => {
               </NavLink>
               
               <NavLink exact to="/carrocerias/mantenimiento" id="carroceria" className={serviceStyle}>
-                <div className="rounded-t-lg bg-white object-cover h-48 w-full">
-                  <div className="text-center pt-16">
+                <div className="rounded-t-lg bg-white object-cover h-48 w-full xl:h-60">
+                  <div className="text-center pt-16 xl:pt-24">
                     <i className="fas fa-tools text-black text-6xl"></i>
                   </div>
                 </div>
@@ -176,12 +179,12 @@ const terceraSeccion = () => {
             </h1>
             <hr className="w-5/12 m-auto" />
           </div>
-          <div className="text-left text-lg text-white mt-4 xl:mt-12">
+          <div className="text-left text-lg text-white mt-4 md:text-xl xl:mt-12">
             <h1>
               <b>Oficina en tlaquepaque:</b>
             </h1>
             <div className="grid grid-cols-1  xl:grid-cols-2 gap-8">
-              <div className="text-sm xl:h-60 grid grid-cols-1 gap-4 xl:gap-1">
+              <div className="text-sm grid grid-cols-1 gap-4 md:text-xl xl:h-60 xl:gap-1">
                 <div>
                   <i
                     id="icons_contacto"
@@ -235,12 +238,12 @@ const terceraSeccion = () => {
               </div>
             </div>
           </div>
-          <div className="text-left text-lg text-white mt-4 xl:mt-24">
+          <div className="text-left text-lg text-white mt-4 md:text-xl xl:mt-24">
             <h1>
               <b>Oficina en el salto:</b>
             </h1>
-            <div className="grid grid-cols-1  xl:grid-cols-2 gap-8">
-              <div className="text-sm grid grid-cols-1 gap-4">
+            <div className="grid grid-cols-1 gap-8 xl:grid-cols-2">
+              <div className="text-sm grid grid-cols-1 gap-4 md:text-xl">
                 <div>
                   <i
                     id="icons_contacto"
@@ -298,7 +301,7 @@ function HomePage() {
 			<img
           src={img.portada}
           alt="portada"
-          className="h-screen object-cover fixed xl:w-screen "
+          className="h-screen object-cover fixed sm:w-screen xl:w-screen "
         />
         {portada()} 
         <div id="segundaSeccion">{segundaSeccion()}</div>

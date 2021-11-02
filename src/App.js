@@ -2,6 +2,7 @@ import React, { useState, useEffect } from  'react'
 import img from './img/imagenes'
 import Aos from 'aos'
 import { BrowserRouter as Router, Route, Switch, NavLink } from "react-router-dom";
+import { Link } from "react-scroll";
 import ContextStates from "./context/Estados";      
 import HomePage from './Components/HomePage';
 import Accesorios from './Components/AccesoriosPage';
@@ -35,16 +36,16 @@ const Navbar = () => {
 
   return (
     <div data-aos="fade-down" className="z-50 fixed w-screen">
-      <div className="bg-blue-600	 px-4 py-1 text-white flex justify-between">
+      <div className="bg-blue-600 px-4 py-1 text-white flex justify-between md:py-2 xl:py-1">
         <img
           onClick={() => window.location.assign("/")}
           src={img.Logotipo}
           alt="logo"
-          className="w-16 cursor-pointer xl:w-24"
+          className="w-16 cursor-pointer md:w-24 xl:w-24"
         />
         <i
           onClick={handleChange}
-          className="fas fa-bars text-2xl xl:hidden"
+          className="fas fa-bars text-2xl md:text-4xl md:p-1 xl:hidden"
         ></i>
         <div className="hidden xl:flex pr-8">
           <NavLink exact to="/"
@@ -61,7 +62,7 @@ const Navbar = () => {
             className="px-8 py-2 flex justify-between" 
           >
             <h1>Carrocerias</h1>
-          </NavLink>
+          </NavLink> 
         </div>
       </div>
       {stateMenu ? menuOpciones()  : null} 

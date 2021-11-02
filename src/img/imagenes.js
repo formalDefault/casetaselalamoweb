@@ -12,6 +12,7 @@ import acc1 from './accesorios/amortiguadores.png'
 import acc2 from './accesorios/ventanas.png'
 import acc3 from './accesorios/cerradura.jpg'
 import mantenimiento from './mantenimiento.jpg'
+import certificado from './certificate.svg'
 
 
 export default {
@@ -29,4 +30,5 @@ export default {
     "ventana": acc2,
     "cerradura": acc3,
     "mantenimiento": mantenimiento,
+    "certificate": certificado
 }

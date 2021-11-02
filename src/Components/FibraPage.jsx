@@ -8,19 +8,20 @@ function FibraPage() {
     const zoom = () => {
       return (
         <div className="">
-          <div className="bg-black h-screen w-screen z-40 absolute m-0 p-4 xl:p-8 xl:fixed">
+          <div className="bg-black h-screen w-screen z-40 absolute m-0 p-4 sm:h-auto md:h-screen md:pt-16 lg:h-auto xl:p-8 xl:fixed">
             <div onClick={() => setState((current) => !current)}>
               <b className=" px-3 pb-1 rounded-full bg-red-500 text-white ">
                 x
               </b>
             </div>
-            <img src={imagen} alt="" className="mt-32 xl:w-3/6 xl:mt-8 xl:m-auto" />
+            <img src={imagen} alt="" className="mt-32 xl:w-3/6 sm:mt-8 md:mt-32 lg:mt-8 xl:mt-8 xl:m-auto" />
           </div>
         </div>
       );
     };
 
     const galeria = () => {
+      var styleImg = 'xl:w-full object-cover xl:h-full cursor-pointer md:h-full shadow-lg'
         return (
           <div className="">
             <div className="p-4 text-center ">
@@ -33,7 +34,7 @@ function FibraPage() {
                 pertenencias.
               </h1>
             </div>
-            <div className="p-4 grid grid-cols-2 gap-2 xl:grid-cols-3">
+            <div className="p-4 grid grid-cols-2 gap-2 md:grid-cols-3 xl:grid-cols-3">
               <img
                 onClick={() => {
                   setImagen(imgFibra.img1);
@@ -41,7 +42,7 @@ function FibraPage() {
                 }}
                 src={imgFibra.img1}
                 alt=""
-                className="xl:w-full cursor-pointer"
+                className={styleImg}
               />
               <img
                 onClick={() => {
@@ -50,7 +51,7 @@ function FibraPage() {
                 }}
                 src={imgFibra.img2}
                 alt=""
-                className=" cursor-pointer"
+                className={styleImg}
               />
               <img
                 onClick={() => {
@@ -59,7 +60,7 @@ function FibraPage() {
                 }}
                 src={imgFibra.img3}
                 alt=""
-                className="xl:w-full object-cover xl:h-full cursor-pointer"
+                className={styleImg}
               />
               <img
                 onClick={() => {
@@ -68,7 +69,7 @@ function FibraPage() {
                 }}
                 src={imgFibra.img4}
                 alt=""
-                className="xl:w-full object-cover xl:h-full cursor-pointer"
+                className={styleImg}
               />
               <img
                 onClick={() => {
@@ -77,7 +78,7 @@ function FibraPage() {
                 }}
                 src={imgFibra.img5}
                 alt=""
-                className=" cursor-pointer"
+                className={styleImg}
               />
             </div>
           </div>
@@ -85,7 +86,7 @@ function FibraPage() {
     }
 
     return (
-      <div className="bg-blue-600 h-screen text-white xl:h-auto"> 
+      <div className="bg-blue-600 h-screen text-white sm:h-auto md:h-screen xl:h-auto"> 
         {state ? zoom() : galeria()}
       </div>
     );

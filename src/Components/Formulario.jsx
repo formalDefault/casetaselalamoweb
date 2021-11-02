@@ -75,8 +75,8 @@ export default function ContactPage() {
           >
             {({ errors }) => (
               <div  className="relative z-40 ">
-                <div className="bg-black bg-opacity-50 pt-12 xl:pt-40 pb-8 w-screen">
-                  <div className="w-full rounded-2xl text-white m-auto p-4  xl:w-4/12 xl:bg-black xl:py-12  "> 
+                <div className="bg-black bg-opacity-50 pt-12 xl:pt-40 pb-8 w-screen ">
+                  <div className="w-full rounded-2xl text-white m-auto p-4  xl:w-4/12 xl:bg-black xl:py-12 sm:w-9/12 "> 
                     <div className="text-center text-2xl">
                         <h1><b>Envianos un mensaje</b></h1> 
                         <hr className="w-8/12 m-auto" />
