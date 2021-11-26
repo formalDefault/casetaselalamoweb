@@ -5,7 +5,7 @@ function LaminaPage() {
     const [state, setState] = useState(false);
     const [imagen, setImagen] = useState();
     
-    const zoom = () => {
+    const Zoom = () => {
       return (
         <div className="">
           <div className="bg-black h-screen w-screen z-40 absolute m-0 p-4 sm:h-auto md:h-screen md:pt-16 xl:p-8 xl:fixed">
@@ -20,8 +20,8 @@ function LaminaPage() {
       );
     };
 
-    const galeria = () => {
-      var styleImg = 'xl:w-full object-cover xl:h-full xl:cursor-pointer sm:h-full sm:w-full md:h-full md:w-full xl:hover:shadow-xl'
+    const Galeria = () => {
+      var styleImg = ' object-cover h-full xl:w-full xl:h-full xl:cursor-pointer sm:h-full sm:w-full md:h-full md:w-full xl:hover:shadow-xl'
       return (
           <div className="">
             <div className="p-4 text-center ">
@@ -87,7 +87,7 @@ function LaminaPage() {
 
     return (
       <div className="bg-blue-600 h-screen text-white sm:h-auto md:h-screen xl:h-auto"> 
-        {state ? zoom() : galeria()}
+        {state ? <Zoom/> : <Galeria/>}
       </div>
     );
 }

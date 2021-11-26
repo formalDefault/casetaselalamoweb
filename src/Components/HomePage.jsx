@@ -12,17 +12,15 @@ const llamadas = (numero) => {
   window.open(`tel:+52${numero}`, '_blank');
 }
 
-const portada = () => {
+const Portada = () => {
     return (
       <div className="">
         <div className="bg-black bg-opacity-50 relative text-white text-2xl h-screen pt-32 sm:pt-12 md:pt-48 xl:pt-32 xl:py-56 xl:h-auto ">
           <div className="text-center">
-            <img src={img.Logotipo1} alt="" className="w-60 m-auto mb-8 sm:w-48 sm:mb-2 md:w-80 md:mb-8"/>
-            <div className="md:text-3xl">
-              <h1>
-                <b>Diseño y Fabricación de Carrocerias</b>
-              </h1>
-              <h1>, Desde Motocarros Hasta Camión de Mudanzas</h1>
+            <img data-aos="zoom-in" src={img.Logotipo1} alt="" className="w-60 m-auto mb-8 sm:w-48 sm:mb-2 md:w-80 md:mb-8"/>
+            <div className="font-bold px-2 md:text-3xl xl:my-8">
+              Diseño y Fabricación de Carrocerias
+              , Desde Motocarros Hasta Camión de Mudanzas 
             </div>
             <Link
               to="formulario"
@@ -43,7 +41,7 @@ const portada = () => {
               to="segundaSeccion"
               spy={true}
               smooth={true}
-              offset={0}
+              offset={-40}
               duration={750}
             >
               <div className=" mb-4 w-2/12 m-auto rounded-full">
@@ -56,11 +54,12 @@ const portada = () => {
     );
 }
 
-const segundaSeccion = () => { 
+const SegundaSeccion = () => { 
+  
   const tarjetasServicios = (imagen, servicio, description) => {
     return (
       <div>
-        <div className={serviceStyle}>
+        <div data-aos="zoom-in" className={serviceStyle}>
           <img src={imagen} alt="imagen_servicio" className="rounded-t-lg bg-blue-600 object-cover h-48 w-full sm:h-60 xl:h-60" />
           <div className="p-2">
             <h1>
@@ -74,11 +73,13 @@ const segundaSeccion = () => {
       </div>
     );
   } 
+  
   var serviceStyle = "text-white border bg-blue-600 shadow-xl rounded-xl xl:shadow-lg xl:hover:shadow-2xl xl:duration-300 cursor-pointer";
-    return (
+    
+  return (
       <div className="relative">
         <div className=" bg-white text-black p-4">
-          <div className=" p-2 rounded-xl shadow-xl text-black border bg-white xl:w-9/12 xl:px-4 xl:m-auto xl:grid xl:grid-cols-2 xl:p-0">
+          <div className=" p-2 rounded-xl shadow-xl text-white border bg-blue-600 xl:w-9/12 xl:px-4 xl:m-auto xl:grid xl:grid-cols-2 xl:p-0">
             <div className="xl:px-6 pt-8">
               {/* <img
                 src={img.nosotros}
@@ -134,7 +135,7 @@ const segundaSeccion = () => {
               )}
               </NavLink>
               
-              <NavLink exact to="/carrocerias/mantenimiento" id="carroceria" className={serviceStyle}>
+              <NavLink  data-aos="zoom-in" exact to="/carrocerias/mantenimiento" id="carroceria" className={serviceStyle}>
                 <div className="rounded-t-lg bg-white object-cover h-48 w-full xl:h-60">
                   <div className="text-center pt-16 xl:pt-24">
                     <i className="fas fa-tools text-black text-6xl"></i>
@@ -157,7 +158,7 @@ const segundaSeccion = () => {
     );
 }
 
-const terceraSeccion = () => {
+const TerceraSeccion = () => {
   return (
     <div>
       <div className="relative w-full h-auto bg-blue-600 p-4">
@@ -172,19 +173,19 @@ const terceraSeccion = () => {
           <i onClick={() => window.open('https://www.facebook.com/carroceriasalamo', '_blank')} className="fab fa-facebook-square p-2 cursor-pointer"></i>
           <i onClick={() => window.open('https://www.instagram.com/carroceriasalamo/', '_blank')} className="fab fa-instagram p-2 cursor-pointer"></i>
         </div>
-        <div id="oficinas" className="">
+        <div id="oficinas" className="xl:px-8">
           <div className="text-center text-2xl text-white mt-12">
             <h1>
               <b>Nuestras oficinas</b>
             </h1>
             <hr className="w-5/12 m-auto" />
           </div>
-          <div className="text-left text-lg text-white mt-4 md:text-xl xl:mt-12">
+          <div className="text-left text-lg text-white mt-4 md:text-xl xl:mt-12 xl:text-lg">
             <h1>
               <b>Oficina en tlaquepaque:</b>
             </h1>
-            <div className="grid grid-cols-1  xl:grid-cols-2 gap-8">
-              <div className="text-sm grid grid-cols-1 gap-4 md:text-xl xl:h-60 xl:gap-1">
+            <div className="grid grid-cols-1 gap-8 xl:grid-cols-2 ">
+              <div className="text-sm grid grid-cols-1 gap-4 md:text-lg xl:h-60 xl:gap-1">
                 <div>
                   <i
                     id="icons_contacto"
@@ -224,26 +225,26 @@ const terceraSeccion = () => {
                   <a className="ml-4">WhatsApp: 3319733043</a>
                 </div>
                 <div>
-                  <i id="icons_contacto" class="fas fa-envelope" />
+                  <i id="icons_contacto" className="fas fa-envelope" />
                   <a className="ml-4">Correo: casetasalamo@gmail.com</a>
                 </div>
               </div>
               <div>
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3734.0100343507647!2d-103.32381178518493!3d20.628447806699494!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428b3a194729db9%3A0x5c52b22a13826601!2sCasetas%20el%20Alamo!5e0!3m2!1ses!2smx!4v1635658411928!5m2!1ses!2smx"
-                  allowfullscreen=""
+                  allowFullScreen=""
                   loading="lazy"
                   className="w-full h-48 rounded-xl xl:w-11/12"
                 ></iframe>
               </div>
             </div>
           </div>
-          <div className="text-left text-lg text-white mt-4 md:text-xl xl:mt-24">
+          <div className="text-left text-lg text-white mt-4 md:text-lg xl:mt-24">
             <h1>
               <b>Oficina en el salto:</b>
             </h1>
             <div className="grid grid-cols-1 gap-8 xl:grid-cols-2">
-              <div className="text-sm grid grid-cols-1 gap-4 md:text-xl">
+              <div className="text-sm grid grid-cols-1 gap-4 md:text-lg">
                 <div>
                   <i
                     id="icons_contacto"
@@ -275,14 +276,14 @@ const terceraSeccion = () => {
                   <a className="ml-4">WhatsApp: 3319733043</a>
                 </div>
                 <div>
-                  <i id="icons_contacto" class="fas fa-envelope" />
+                  <i id="icons_contacto" className="fas fa-envelope" />
                   <a className="ml-4">Correo: casetasalamo@gmail.com</a>
                 </div>
               </div>
               <div>
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d762.9304178463585!2d-103.30317366852613!3d20.56882349823568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842f4d4a3b62444b%3A0x373188579941dee7!2sCarrocer%C3%ADas%20el%20%C3%81lamo!5e0!3m2!1ses!2smx!4v1635658738574!5m2!1ses!2smx"
-                  allowfullscreen=""
+                  allowFullScreen=""
                   loading="lazy"
                   className="w-full h-48 rounded-xl xl:w-11/12"
                 ></iframe>
@@ -303,9 +304,9 @@ function HomePage() {
           alt="portada"
           className="h-screen object-cover fixed sm:w-screen xl:w-screen "
         />
-        {portada()} 
-        <div id="segundaSeccion">{segundaSeccion()}</div>
-        {terceraSeccion()}
+        <Portada />
+        <div id="segundaSeccion"><SegundaSeccion/> </div>
+        <TerceraSeccion/>
         <div id="formulario"><Formulario /></div>
       </div>
     );

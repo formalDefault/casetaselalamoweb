@@ -24,7 +24,7 @@ function Accesorios() {
         }
         return(
             <div>
-                <div onClick={() => handleChange()} className="z-10 bg-blue-600 border rounded-lg shadow-lg sm:w-full sm:h-full md:w-full md:h-full xl:w-8/12 xl:m-auto xl:cursor-pointer xl:shadow-sm xl:hover:shadow-xl">
+                <div  data-aos="zoom-in" onClick={() => handleChange()} className="z-10 bg-blue-600 border rounded-lg shadow-lg sm:w-full sm:h-full md:w-full md:h-full xl:w-8/12 xl:m-auto xl:cursor-pointer xl:shadow-sm xl:hover:shadow-xl">
                     <img src={imagen} alt="imagen" className="rounded-t-lg object-cover h-24 w-full bg-white md:h-48 xl:h-48 "/>
                     <h1 className="m-2 text-white"><b>{Titulo}</b></h1> 
                     <i className="fab fa-whatsapp px-2 py-1 m-2 rounded-full bg-white text-blue-600 w-auto"> Contactar</i> 

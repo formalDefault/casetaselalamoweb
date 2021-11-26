@@ -7,6 +7,7 @@ export default function ContactPage() {
     const [showMessage, setShowMessage] = useState(false); 
 
     const Formulario = () => {
+      var styleFields = 'outline-none text-black border-b-2 border-blue-600 rounded-lg w-full h-12 my-5 px-4'
         return (
           <Formik
             //valores de los campos del formulario
@@ -74,9 +75,9 @@ export default function ContactPage() {
             }}
           >
             {({ errors }) => (
-              <div  className="relative z-40 ">
+              <div className="relative z-40 ">
                 <div className="bg-black bg-opacity-50 pt-12 xl:pt-40 pb-8 w-screen ">
-                  <div className="w-full rounded-2xl text-white m-auto p-4  xl:w-4/12 xl:bg-black xl:py-12 sm:w-9/12 "> 
+                  <div  data-aos="fade-down" data-aos-duration="800" className="w-full rounded-2xl text-white m-auto p-4  xl:w-4/12 xl:bg-black xl:py-12 sm:w-9/12 "> 
                     <div className="text-center text-2xl">
                         <h1><b>Envianos un mensaje</b></h1> 
                         <hr className="w-8/12 m-auto" />
@@ -87,7 +88,7 @@ export default function ContactPage() {
                         id="correoCliente"
                         type="text"
                         placeholder="Correo electronico"
-                        className="outline-none text-black border-b-2 border-yellow-600 rounded-lg w-full h-12 my-5 px-4"
+                        className={styleFields}
                       />
                       <ErrorMessage
                         name="correoCliente"
@@ -102,7 +103,7 @@ export default function ContactPage() {
                         id="nombreCliente"
                         type="text"
                         placeholder="Nombre completo"
-                        className="outline-none text-black border-b-2 border-yellow-600 rounded-lg w-full h-12 my-5 px-4"
+                        className={styleFields}
                       />
                       <ErrorMessage
                         name="nombreCliente"
@@ -117,7 +118,7 @@ export default function ContactPage() {
                         id="telefonoCliente"
                         type="text"
                         placeholder="Numero de telefono"
-                        className="outline-none text-black border-b-2 border-yellow-600 rounded-lg w-full h-12 my-5 px-4"
+                        className={styleFields}
                       />
                       <ErrorMessage
                         name="telefonoCliente"
@@ -132,12 +133,12 @@ export default function ContactPage() {
                         id="mensajeCliente"
                         as="textarea"
                         placeholder="Mensaje"
-                        className="outline-none text-black border-b-2 border-yellow-600 rounded-lg w-full my-5 py-2 px-4"
+                        className="outline-none text-black border-b-2 border-blue-600 rounded-lg w-full my-5 py-2 px-4"
                       />
                       <center>
                         <button
                           type="submit"
-                          className="py-1 w-full rounded-xl px-8 bg-gradient-to-r from-pink-700 to-yellow-500"
+                          className="py-1 w-full rounded-xl px-8 bg-gradient-to-r from-blue-800 to-blue-600"
                         >
                           Enviar mensaje
                         </button>

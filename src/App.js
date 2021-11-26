@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from  'react'
 import img from './img/imagenes'
 import Aos from 'aos'
-import { BrowserRouter as Router, Route, Switch, NavLink } from "react-router-dom";
-import { Link } from "react-scroll";
+import { HashRouter as Router, Route, Switch, NavLink } from "react-router-dom"; 
 import ContextStates from "./context/Estados";      
 import HomePage from './Components/HomePage';
 import Accesorios from './Components/AccesoriosPage';
@@ -13,11 +12,15 @@ import Mantenimiento from './Components/Mantenimiento';
  
 const Navbar = () => {
   const [stateMenu, setStateMenu ] =  useState(false);
+  const [stateSubmenu, setStateSubMenu ] =  useState(false);
   const handleChange = () => setStateMenu(current => !current)
+  var styleSubMenu = "cursor-pointer my-2 "
+  var activeOpc = 'border-b '
+  var styleMenuXl = "px-8 pt-4 flex justify-between"
 
   const menuOpciones = () => {
     return(
-      <div data-aos="fade-right"  className="z-50  shadow-lg xl:hidden text-white float-right py-4 w-6/12 bg-blue-600 grid grid-rows gap-y-2">
+      <div data-aos="fade-left"  className="z-50  shadow-lg xl:hidden text-white float-right py-4 w-6/12 bg-blue-600 grid grid-rows gap-y-2">
         <NavLink exact to="/" onClick={handleChange} className="px-4 py-2 flex justify-between">
           <i className="fas fa-home text-lg"></i>
           <h1>Inicio</h1>
@@ -35,7 +38,7 @@ const Navbar = () => {
   }
 
   return (
-    <div data-aos="fade-down" className="z-50 fixed w-screen">
+    <div className="z-50 fixed w-screen">
       <div className="bg-blue-600 px-4 py-1 text-white flex justify-between md:py-2 xl:py-1">
         <img
           onClick={() => window.location.assign("/")}
@@ -48,24 +51,47 @@ const Navbar = () => {
           className="fas fa-bars text-2xl md:text-4xl md:p-1 xl:hidden"
         ></i>
         <div className="hidden xl:flex pr-8">
-          <NavLink exact to="/"
-            className="px-8 py-2 flex justify-between" 
-          >
+          <NavLink 
+            exact 
+            to="/" 
+            activeClassName={activeOpc}
+            className={styleMenuXl}>
             <h1>Inicio</h1>
           </NavLink>
-          <NavLink exact to="/accesorios"
-            className="px-8 py-2 flex justify-between"  
+          <NavLink
+            exact
+            to="/accesorios"
+            activeClassName={activeOpc}
+            className={styleMenuXl}
           >
             <h1>Accesorios</h1>
           </NavLink>
-          <NavLink exact to="/carrocerias"
-            className="px-8 py-2 flex justify-between" 
+          <NavLink
+            onMouseEnter={() => setStateSubMenu(true)}
+            onMouseLeave={() => setStateSubMenu(false)}
+            exact
+            to="/carrocerias"
+            activeClassName={activeOpc}
+            className={styleMenuXl}
           >
             <h1>Carrocerias</h1>
-          </NavLink> 
+          </NavLink>
         </div>
       </div>
-      {stateMenu ? menuOpciones()  : null} 
+      {stateSubmenu ? (
+        <div
+          onMouseEnter={() => setStateSubMenu(true)}
+          onMouseLeave={() => setStateSubMenu(false)}
+          data-aos="fade-left"
+          data-aos-duration="300"
+          className="bg-blue-600  w-2/12 float-right text-white text-center px-8 rounded-bl-xl py-2 grid grid-row-1"
+        >
+          <NavLink exact to="/carrocerias/fibra" activeClassName={activeOpc} className={styleSubMenu}><h1>Fibra de vidrio</h1></NavLink>
+          <NavLink exact to="/carrocerias/lamina" activeClassName={activeOpc} className={styleSubMenu}><h1>Lamina</h1></NavLink>
+          <NavLink exact to="/carrocerias/mantenimiento" activeClassName={activeOpc} className={styleSubMenu}><h1>Reparacion de cajas</h1></NavLink>  
+        </div>
+      ) : null}
+      {stateMenu ? menuOpciones() : null}
     </div>
   );
 }
@@ -85,14 +111,14 @@ const page404 = () => {
 function App() {
 
   useEffect(() => {
-    Aos.init({ duration: 650 });  
+    Aos.init({ duration: 550 });  
   }, []);  
   
   return (
     <div className="overflow-y-hidden">
       <ContextStates>
         <Router>
-          {Navbar()}
+          <Navbar/>
           <Switch> 
             <Route exact path="/carrocerias">
               <div className="pt-9"><CarroceriasPage/> </div> 
